@@ -1,4 +1,4 @@
-package BaseConvert
+package base_convert
 
 func BaseConvert(x int, base int) []int {
 	r := []int{}
