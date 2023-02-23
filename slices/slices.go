@@ -13,7 +13,7 @@ func Clone[T any](s []T) []T {
 	return c
 }
 
-// Append appends an ite.m to the slice and returns the new slice. The
+// Append adds an entry to the end of a new slice and returns the new slice. The
 // given slice is not changed.
 func Append[T any](s []T, item ...T) []T {
 	return append(Clone(s), item...)
