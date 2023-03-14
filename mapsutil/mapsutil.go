@@ -177,4 +177,3 @@ func HTTPResponseToMap(resp *http.Response) (map[string]interface{}, error) {
 
 	return m, nil
 }
-HyperWrite Logo
