@@ -1,5 +1,8 @@
 package slices
 
+// Partition function partitions the slice s in the range [low, high) using the element at index high as pivot.
+// Elements smaller than the pivot are moved to the left side of the pivot, and larger elements to the right.
+// Returns the index where the pivot is placed.
 func partition[T Ordered](s []T, low, high int) int {
 	for j := low; j < high; j++ {
 		if s[j] < s[high] {
@@ -11,6 +14,8 @@ func partition[T Ordered](s []T, low, high int) int {
 	return low
 }
 
+// QuickSort function sorts the slice s in the range [low, high) in ascending order using the quicksort algorithm.
+// If the slice's length is less than 12, it switches to using the insertionSort function for sorting.
 func quickSort[T Ordered](s []T, low, high int) {
 	if low < high {
 		if high-low < 12 {
@@ -23,6 +28,7 @@ func quickSort[T Ordered](s []T, low, high int) {
 	}
 }
 
+// InsertionSort function sorts the slice s in the range [a, b) in ascending order using the insertion sort algorithm.
 func insertionSort[T Ordered](s []T, a, b int) {
 	for i := 1; i < b-a+1; i++ {
 		j := i
@@ -35,6 +41,7 @@ func insertionSort[T Ordered](s []T, a, b int) {
 	}
 }
 
+// PartitionFunc function is similar to the partition function but uses a custom comparison function provided by 'less' to determine the ordering.
 func partitionFunc[T any](s []T, low, high int, less func(T, T) bool) int {
 	for j := low; j < high; j++ {
 		if less(s[j], s[high]) {
@@ -46,6 +53,7 @@ func partitionFunc[T any](s []T, low, high int, less func(T, T) bool) int {
 	return low
 }
 
+// QuickSortFunc function is a variation of the quickSort function that is based on a custom comparison function provided by 'less'.
 func quickSortFunc[T any](s []T, low, high int, less func(T, T) bool) {
 	if low < high {
 		if high-low < 12 {
@@ -58,6 +66,7 @@ func quickSortFunc[T any](s []T, low, high int, less func(T, T) bool) {
 	}
 }
 
+// InsertionSortFunc function is a variant of the insertionSort function that uses a custom comparison function 'less'.
 func insertionSortFunc[T any](s []T, a, b int, less func(T, T) bool) {
 	for i := 1; i < b-a+1; i++ {
 		j := i
